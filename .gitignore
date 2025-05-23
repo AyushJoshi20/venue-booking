@@ -1,0 +1,15 @@
+# Angular (venBook)
+/venBook/node_modules
+/venBook/dist
+/venBook/.angular
+/venBook/.env
+
+# Spring Boot (venueBooking)
+/venueBooking/target
+/venueBooking/.idea
+/venueBooking/*.iml
+
+# General
+*.log
+.DS_Store
+.env
