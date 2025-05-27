@@ -15,6 +15,8 @@ public class Venue {
     private String name;
     private String location;
     private int capacity;
+    @Column(name = "image_url")
+    private String imageUrl;
 
     @OneToMany(mappedBy = "venue", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonManagedReference(value = "venue-bookings")
@@ -29,6 +31,14 @@ public class Venue {
 
     public Venue() {
 
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 
     public Long getId() {
