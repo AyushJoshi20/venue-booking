@@ -1,0 +1,66 @@
+<div class="container">
+  <div class="row">
+
+    <div class="col-sm-4 mt-5 mb-sm-0" *ngFor="let venue of venues">
+
+      <div class="card">
+
+        <img
+          [src]="venue.imageUrl"
+          alt="Venue_Image"
+          class="card-img-top"
+        >
+
+        <div class="card-body">
+
+          <h5 class="card-title">{{ venue.name }}</h5>
+
+          <p class="card-text">
+            Capacity : {{ venue.capacity }}
+          </p>
+
+          <p>
+            Location : {{ venue.location }}
+          </p>
+
+          <div class="mb-3">
+            <label class="form-label">
+              Booking Date
+            </label>
+
+            <input
+              type="date"
+              class="form-control"
+              [(ngModel)]="venue.localDate"
+              name="localDate-{{ venue.id }}"
+            >
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">
+              Booking Time
+            </label>
+
+            <input
+              type="time"
+              class="form-control"
+              [(ngModel)]="venue.localTime"
+              name="localTime-{{ venue.id }}"
+            >
+          </div>
+
+          <button
+            class="btn btn-primary"
+            (click)="onSubmit(venue)"
+            style="width: 150px;"
+          >
+            Book
+          </button>
+
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>

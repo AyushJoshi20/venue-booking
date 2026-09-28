@@ -1,0 +1,31 @@
+<div class="container">
+    <form [formGroup]="registrationForm" (ngSubmit)="onsubmitted()">
+            <label for="Name">Name</label>  &nbsp;
+            <input type="text" name="Name" id="Name" formControlName="name">
+            <p *ngIf="controls.name.touched  && controls.name.invalid" style="color: red;">
+                <span *ngIf="controls.name?.errors?.['required']">Name is Required</span>
+            </p>
+
+             <label for="Surname">Surname</label> 
+            <input type="text" name="Surname" id="Surname" formControlName="surname">
+            <p *ngIf="controls.surname.touched  && controls.surname.invalid" style="color: red;">
+                <span *ngIf="controls.name?.errors?.['required']">surname is Required</span>
+            </p>
+
+            <label for="Email">Email</label> 
+            <input type="email" name="Email" id="Email" formControlName="email" email>
+            <p *ngIf="controls.email.touched && controls.email.invalid" style="color: red;">
+                <span *ngIf="controls.email?.errors?.['required']">Email is Required</span>
+                <span *ngIf="controls.email?.errors?.['email']">Invalid Email</span>
+            </p>
+
+            <label for="Password">Password</label>
+            <input type="password" name="Password" id="Password" formControlName="password">
+            <p *ngIf="controls.password.touched && controls.password.invalid" style="color: red;">
+                <span *ngIf="controls.password?.errors?.['required']">Password is Required</span>
+                <span *ngIf="controls.password?.errors?.['minlength']">Minimum 6 Characters</span>
+            </p>
+
+            <button type="submit" [disabled]="registrationForm.invalid">Submit</button>
+    </form>
+</div>
